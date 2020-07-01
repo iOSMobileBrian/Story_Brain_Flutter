@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'story_brain.dart';
 
-//TODO: Step 15 - Run the app and see if you can see the screen update with the first story. Delete this TODO if it looks as you expected.
+
 
 void main() => runApp(Destini());
 
@@ -13,7 +14,9 @@ class Destini extends StatelessWidget {
   }
 }
 
-//TODO: Step 9 - Create a new storyBrain object from the StoryBrain class.
+
+
+StoryBrain brain = StoryBrain();
 
 class StoryPage extends StatefulWidget {
   _StoryPageState createState() => _StoryPageState();
@@ -24,7 +27,7 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //TODO: Step 1 - Add background.png to this Container as a background image.
+
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage('images/background.png'),
             fit: BoxFit.cover
@@ -41,8 +44,8 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    //TODO: Step 10 - use the storyBrain to get the first story title and display it in this Text Widget.
-                    'Story text will go here.',
+
+                    brain.getStory(),
                     style: TextStyle(
                       fontSize: 25.0,
                     ),
@@ -54,12 +57,13 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 1 made by user.
-                    //TODO: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
+
+                    brain.nextStory(1);
                   },
                   color: Colors.red,
                   child: Text(
-                    //TODO: Step 13 - Use the storyBrain to get the text for choice 1.
-                    'Choice 1',
+
+                    brain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -76,12 +80,13 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 2 made by user.
-                    //TODO: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
+
+                    brain.nextStory(2);
                   },
                   color: Colors.blue,
                   child: Text(
-                    //TODO: Step 14 - Use the storyBrain to get the text for choice 2.
-                    'Choice 2',
+
+                    brain.getChoice2(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
